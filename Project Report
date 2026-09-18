@@ -1,156 +1,73 @@
-ALGORITHM ANALYZER
+# ALGORITHM ANALYZER
 
-1. Introduction
+## 1. Introduction
 
-Search algorithms are fundamental to artificial intelligence and machine learning. They are used to explore state spaces and find optimal paths or solutions. Different algorithms follow different strategies leading to variations in performance, cost and efficiency.
-This project, "Algorithm Analyzer", is designed to implement and compare multiple search algorithms ( namely BFS, DFS, Hill climbing, A*, Best First Search ) on a user-defined graph. The system evaluates each algorithm and identifies the most efficient one based on path cost.
+Search algorithms are an important part of Artificial Intelligence and are widely used for solving graph-based problems, path finding, and state-space exploration. Different search algorithms use different strategies to find a path from a starting node to a goal node. Their performance may vary depending on the structure of the graph, edge costs, and heuristic values.
 
-2. Objectives
-The main objectives of this project are:
+The project **“Algorithm Analyzer”** is developed in Python to implement and compare five search algorithms:
 
-* To implement various search algorithms in Python
-* To analyze and compare their performance
-* To determine the most optimal path from start to goal node
-* To understand the role of heuristics in informed search algorithms
-* To build a system that automates algorithm comparison
+* Breadth First Search (BFS)
+* Depth First Search (DFS)
+* A* Search
+* Best First Search
+* Hill Climbing
 
-3. Scope of the Project
-This project focuses on:
+The system accepts a user-defined weighted graph, heuristic values, starting node, and goal node. Each algorithm is executed independently, and the resulting path and path cost are displayed. The system helps users understand the differences between uninformed and informed search techniques.
 
-* Graph-based problem solving
-* Comparison of uninformed and informed search algorithms
-* Cost-based path optimization
+---
 
-4. Algorithms Used
+## 2. Objectives
 
-4.1 Breadth First Search (BFS)
+The main objectives of the project are:
 
-* Explores nodes level by level ( breadth wise)
-* Guarantees shortest path in terms of steps
-* Does not consider heuristic cost
+* To implement different search algorithms using Python.
+* To understand the working principles of uninformed and informed search.
+* To find paths between a given start node and goal node.
+* To calculate and compare the path cost produced by different algorithms.
+* To understand the importance of heuristic functions in informed search.
+* To provide an automated system for comparing search algorithms.
+* To develop a simple and interactive tool for learning Artificial Intelligence search techniques.
 
-4.2 Depth First Search (DFS)
+---
 
-* Explores deeply into one branch before backtracking ( depth wise)
-* Does not guarantee optimal solution
+## 3. Scope of the Project
 
-4.3 A* Algorithm
+The project focuses on:
 
-* Uses function:
-  f(n) = g(n) + h(n)
-* Combines actual cost and heuristic
-* Guarantees optimal solution if heuristic is accurate
+* Graph-based path-finding problems.
+* Weighted graphs with user-defined nodes and edges.
+* Comparison of uninformed and informed search algorithms.
+* Heuristic-based search.
+* Path-cost comparison.
+* Educational analysis of search strategies.
 
-4.4 Best First Search
+The system can be extended in the future to support graphical visualization, automatic graph detection, and additional search algorithms.
 
-* Uses heuristic function only
-f(n)=h(n)
-* Selects node closest to goal
-* Faster but not always optimal
+---
 
-4.5 Hill Climbing
+## 4. Algorithms Used
 
-* Greedy approach
-* Moves to best neighboring node
-* May get stuck in local maxima, ridge problem and plateau problem.
+### 4.1 Breadth First Search (BFS)
 
-5. System Design
+Breadth First Search explores the graph level by level. It first visits all nodes at the current depth before moving to the next level.
 
-5.1 Input
+**Characteristics:**
 
-* Graph (nodes and weighted edges)
-* Heuristic values
-* Start node
-* Goal node
+* Uses a queue data structure.
+* Does not use heuristic information.
+* Finds a path with the minimum number of edges when all edges have equal cost.
+* Does not necessarily produce the minimum-cost path in a weighted graph.
 
-5.2 Processing
+---
 
-* Each algorithm runs independently
-* Path and cost are calculated
-* Results are compared
+### 4.2 Depth First Search (DFS)
 
-5.3 Output
+Depth First Search explores one branch as deeply as possible before backtracking and exploring another branch.
 
-* Path found by each algorithm
-* Total cost of each algorithm
-* Best algorithm based on minimum cost
+**Characteristics:**
 
-6. Implementation Details
-
-* Programming Language: Python
-* Data Structures Used:
-
-  * Graph (Dictionary)
-  * Queue (BFS)
-  * Stack (DFS)
-  * Priority Queue (A*, Best First)
-
-7. Sample Input
-Enter nodes separated by space(eg: A B C): S A B C D E F G H I J K 
-Enter neighbors for S as 'neighbor weight' pairs, separated by commas (e.g., B 1, C 3):  A 4, B 10 , C 11
-Enter neighbors for A as 'neighbor weight' pairs, separated by commas (e.g., B 1, C 3): B 8, D 5
-Enter neighbors for B as 'neighbor weight' pairs, separated by commas (e.g., B 1, C 3): D 15
-Enter neighbors for C as 'neighbor weight' pairs, separated by commas (e.g., B 1, C 3): D 8 , F 2 , E 20
-Enter neighbors for D as 'neighbor weight' pairs, separated by commas (e.g., B 1, C 3): H 16, I 20, F 1
-Enter neighbors for E as 'neighbor weight' pairs, separated by commas (e.g., B 1, C 3): G 19
-Enter neighbors for F as 'neighbor weight' pairs, separated by commas (e.g., B 1, C 3): G 13
-Enter neighbors for G as 'neighbor weight' pairs, separated by commas (e.g., B 1, C 3):
-Enter neighbors for H as 'neighbor weight' pairs, separated by commas (e.g., B 1, C 3): I 1, J 2
-Enter neighbors for I as 'neighbor weight' pairs, separated by commas (e.g., B 1, C 3): J 5, K 13, G 5
-Enter neighbors for J as 'neighbor weight' pairs, separated by commas (e.g., B 1, C 3): K 7
-Enter neighbors for K as 'neighbor weight' pairs, separated by commas (e.g., B 1, C 3): G 16
-Enter heuristic for S: 7
-Enter heuristic for A: 8
-Enter heuristic for B: 6
-Enter heuristic for D: 5
-Enter heuristic for E: 3
-Enter heuristic for H: 7
-Enter heuristic for I: 4
-Enter heuristic for J: 5
-Enter heuristic for K: 3
-Enter start node: S
-Enter goal node: G
-
-8. Sample Output
-BFS: Path = ['S', 'C', 'F', 'G'], Cost = 26
-DFS: Path = ['S', 'A', 'B', 'D', 'H', 'I', 'J', 'K', 'G'], Cost = 72
-A*: Path = ['S', 'A', 'D', 'F', 'G'], Cost = 23
-Best First: Path = ['S', 'C', 'E', 'G'], Cost = 50
-Hill Climbing: Path = ['S', 'C', 'F', 'G'], Cost = 26
-
-🏆 Best Algorithm: A* with cost 23
-
-9. Advantages
-
-* Easy comparison of algorithms
-* Helps understand search strategies
-* Modular and extensible design
-* Useful for learning AI concepts
-
-10. Limitations
-
-* Hill climbing may fail to find solution
-* DFS may not give optimal result
-* AO* not implemented (basic version)
-* Requires correct heuristic for A*
-* entering the state search graph/ tree is quite complete one mistake might lead to a huge error.
-
-11. Future Enhancements
-
-* Graphical User Interface (GUI) and opencv for detection of graphs/trees from pictures
-* Implementation of AO* algorithm
-* Performance analysis (time complexity)
-
-12. Conclusion
-
-The Search Algorithm Analyzer successfully demonstrates the differences between various search algorithms. It highlights how different strategies lead to different results in terms of cost and efficiency. Among all, A* algorithm performs best in most cases due to its balanced approach using cost and heuristic.
-
-This project provides a strong foundation for understanding artificial intelligence search techniques.
-
-13. References
-
-* Artificial Intelligence: A Modern Approach – Stuart Russell
-* Python Documentation
-
-
-
+* Uses a stack or recursion.
+* Does not use heuristic information.
+* Can find a solution quickly depending on the graph.
+* Does not guarantee the shortest or minimum-cost path.
+* May explore unnecessary nodes before find
