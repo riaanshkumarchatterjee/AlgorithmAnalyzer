@@ -5,8 +5,8 @@
 Algorithm Analyzer is a Python and Streamlit based application designed
 to demonstrate and compare different AI search algorithms on a weighted graph.
 
-The application allows the user to create a graph, assign costs to edges,
-provide heuristic values, select a starting node and a goal node, and then
+The application allows users to create a graph, assign costs to edges,
+provide heuristic values, select a starting node and a goal node, and
 observe how different search algorithms find a path.
 
 ## Algorithms Implemented
